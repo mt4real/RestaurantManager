@@ -1,0 +1,17 @@
+Admins
+Owners
+Restauran(multiple)
+Menus
+Tables{
+	Orders
+    Customer Details 
+
+}
+
+Menus{
+	
+	name of the dish
+	price of the dish
+	description
+	image
+}
