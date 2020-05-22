@@ -5,6 +5,7 @@
  */
 
 require('./bootstrap');
+//require('vue-multiselect/dist/vue-multiselect.min.css');
 
 window.Vue = require('vue');
 
@@ -18,8 +19,24 @@ window.Vue = require('vue');
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+//Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+/**
+
+*these are the global components
+*/
+
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
+Vue.component('card-component', require('./components/Card.vue').default);
+
+
+Vue.component('menu-container', require('./modules/menu/MenuContainer.vue').default);
+
+Vue.component('resto-group', require('./modules/restos/RestoGroup.vue').default);
+Vue.component('order-group', require('./modules/orders/OrderGroup.vue').default);
+Vue.component('manage-orders', require('./modules/orders/ManageOrders.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -27,6 +44,17 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
+// const app = new Vue({
+//     el: '#app',
+// });
+
+window.eventBus = new Vue({});
+
+document.addEventListener('turbolinks:load', () => {
+  var element = document.getElementById('app');
+  if (element != null) {
+    const app = new Vue({
+      el: element
+    });
+  }
 });

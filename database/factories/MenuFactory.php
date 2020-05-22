@@ -1,15 +1,13 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
-
-use App\Models\Menu;
 use Faker\Generator as Faker;
 
-$factory->define(Menu::class, function (Faker $faker) {
+$factory->define(App\Models\Menu::class, function (Faker $faker) {
     return [
-        //menu fake data
-        'name'=>$faker->word,
-        'description'=>$faker->paragraphs($nb = 3, $asText = true),
-        'price'=>$faker->numberBetween(99,999),
+        'name' => $faker->word,
+        'description' => $faker->paragraphs(2, true),
+        'price' => $faker->numberBetween(99, 999),
+        'resto_id' => 1,
+        'category_id' => 1,
     ];
 });
